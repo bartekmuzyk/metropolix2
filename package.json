@@ -1,0 +1,17 @@
+{
+  "name": "metropolix2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploycmd": "node deploycmd.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "bartekk",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.6.0"
+  }
+}
