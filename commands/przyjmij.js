@@ -1,6 +1,7 @@
 const {Client, ChatInputCommandInteraction, SlashCommandBuilder, GuildMember} = require("discord.js");
 const config = require("../config.json");
 const WelcomeService = require("../services/welcome");
+const {DiscordPermission} = require("../constants");
 
 /**
  * @param client {Client}
@@ -36,6 +37,6 @@ module.exports = {
             .setName("member")
             .setDescription("Użytkownik do przyjęcia na serwer.")
         )
-        .setDefaultMemberPermissions(8),
+        .setDefaultMemberPermissions(DiscordPermission.MANAGE_ROLES),
     execute
 }
