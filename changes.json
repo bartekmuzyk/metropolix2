@@ -1,0 +1,10 @@
+{
+  "title": "\uD83D\uDC4B Metropolix wraca!",
+  "description": "Metropolix wraca na serwer napisany od zera, ze wsparciem dla Discordowych komend!",
+  "features": {
+    "\uD83D\uDDF3️ Tworzenie głosowań przez społeczność w odnowionej formie": "Teraz tworzenie głosowań jest łatwiejsze niż zwykle dzięki komendzie `/głosowanie` - zamiast prosić o listę opcji podawaną po spacji, wyświetla dedykowane okno dialogowe i pozwala automatycznie oznaczyć wszystkich na odpowiednim kanale po utworzeniu ankiety, jeżeli to naprawdę ważna kwestia.",
+    "\uD83E\uDE84 Ułatwienia dla moderacji": "Aby moderacja serwera również mogła szybko załatwiać sprawy administracyjne, posiada ona do dyspozycji komendę pozwalającą szybko przyjmować członków na serwer.",
+    "\uD83D\uDC64 Dla nowych członków": "Bot będzie teraz witał nowych użytkowników na kanale początkowym bardziej szczegółową wiadomością. Po przyjęciu, taki użytkownik dostanie wiadomość z krótkim oprowadzeniem na czat prywatny, lub (w przypadku braku możliwości kontaktu przez bezpośrednią wiadomość, np. zablokowane DM'y) zostanie poproszony o wykonanie komendy `/oprowadzenie`, która jest zawsze dla wszystkich dostępna.",
+    "✨ Slash commands = czystsze kanały tekstowe + łatwość korzystania": "Nowy system komend na Discordzie nazywany \"Slash Commands\", pozwala utrzymać większą czystość na czatach, ponieważ wykonane komendy nie są osobnymi wiadomościami, a niektóre odpowiedzi bota mogą być zaprogramowane tak, aby były widoczne tylko dla osoby wykonującej daną komendę. Dodatkowo, komendy posiadają podpowiedzi dotyczącę tego jak z nich korzystać, dzięki czemu o wiele trudniej jest się pomylić w trakcie korzystania z nich."
+  }
+}
