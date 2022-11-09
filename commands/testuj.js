@@ -1,5 +1,6 @@
-const {ChatInputCommandInteraction, SlashCommandBuilder, Client, EmbedBuilder} = require("discord.js");
+const {ChatInputCommandInteraction, SlashCommandBuilder, Client} = require("discord.js");
 const config = require("../config.json");
+const {DiscordPermission} = require("../constants");
 
 /**
  * @param client {Client}
@@ -32,6 +33,6 @@ module.exports = {
             .setDescription("rzecz do przetestowania")
         )
         .setDMPermission(false)
-        .setDefaultMemberPermissions(8),
+        .setDefaultMemberPermissions(DiscordPermission.ADMINISTRATOR),
     execute
 };

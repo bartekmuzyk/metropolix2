@@ -1,4 +1,4 @@
-const {Client, ChatInputCommandInteraction, SlashCommandBuilder, GuildMember, EmbedBuilder} = require("discord.js");
+const {Client, ChatInputCommandInteraction, SlashCommandBuilder} = require("discord.js");
 const WelcomeService = require("../services/welcome");
 
 /**
