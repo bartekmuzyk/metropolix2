@@ -91,7 +91,7 @@ async function onModalSubmit(client, interaction, mentionEveryone) {
 
     pollEmbed.setAuthor({
         iconURL: interaction.user.avatarURL({ size: 64, extension: "jpg" }),
-        name: interaction.user.tag
+        name: interaction.member.displayName
     });
 
     if (mentionEveryone) pollsChannel.send({ content: "@everyone" });

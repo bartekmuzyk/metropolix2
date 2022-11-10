@@ -6,7 +6,7 @@ class WelcomeService {
      */
     static generateEmbed() {
         return new EmbedBuilder()
-            .setColor(0x541eea)
+            .setColor(0x541EEA)
             .setTitle("Witaj na Metropolii!")
             .setDescription("Oto informacje na temat kilku kanałów, które mogą okazać się przydatne:")
             .addFields({
