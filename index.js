@@ -30,7 +30,7 @@ for (const file of commandFiles) {
 
 client.once(Events.ClientReady, c => {
     client.user.setPresence({
-        status: "online",
+        status: isDevMode ? "dnd" : "online",
         activities: [
             {
                 type: ActivityType.Playing,
