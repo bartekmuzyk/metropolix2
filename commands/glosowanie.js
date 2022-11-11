@@ -33,7 +33,7 @@ const voteEmojis = {
  */
 async function execute(client, interaction) {
     const modal = new ModalBuilder()
-        .setCustomId(interaction.options.getBoolean("mention_everyone") ? "voting_modal_everyone" : "voting_modal")
+        .setCustomId((interaction.options.getBoolean("mention_everyone") ?? false) ? "voting_modal_everyone" : "voting_modal")
         .setTitle("Tworzenie głosowania");
 
 
@@ -70,8 +70,8 @@ async function onModalSubmit(client, interaction, mentionEveryone) {
         .map(s => s.trim())
         .filter(s => s.length > 0);
 
-    if (options.length < 2 || options.length > 10) {
-        interaction.reply({ content: "Podaj ilość opcji między 2 a 10", ephemeral: true });
+    if (options.length < 2 || options.length > 9) {
+        interaction.reply({ content: "Podaj ilość opcji między 2 a 9", ephemeral: true });
         return;
     }
 
@@ -121,9 +121,8 @@ ModalSubmitRegistrar.register(
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("glosowanie")
-        .setDescription("Tworzy głosowanie z ilością opcji od dwóch do dziesięciu.")
+        .setDescription("Tworzy głosowanie z ilością opcji od dwóch do dziewięciu.")
         .addBooleanOption(option => option
-            .setRequired(true)
             .setName("mention_everyone")
             .setDescription("Oznacz wszystkich (@everyone) na serwerze po utworzeniu głosowania.")
         ),
