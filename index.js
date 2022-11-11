@@ -7,6 +7,8 @@ const Auth = require("./auth");
 
 const isDevMode = process.env.BOT_ENV === "dev";
 
+if (isDevMode) console.log("🚧 TRYB DEWELOPERSKI 🚧");
+
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers]
 });
