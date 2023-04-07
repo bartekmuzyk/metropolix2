@@ -19,7 +19,7 @@ class WelcomeService {
                 name: "🎨│autorskie",
                 value: "Nie myl tego kanału z show-and-tell! Tu możesz wstawić jedynie to co zostało przez Ciebie stworzone (nawet jeżeli to coś bazuje na twórczości kogoś innego). Również mile widziane jest oznaczanie zawartości NSFW, tak jak powyżej."
             }, {
-                name: "🗿│premium-kanal-premium",
+                name: "🦽│siedziba-wielkiego-judasza",
                 value: "Nikt nie wie co tu się dzieje, ale jest."
             }, {
                 name: "📷│ojom",
