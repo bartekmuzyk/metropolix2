@@ -1,0 +1,20 @@
+{
+  "token": "",
+  "memberCount": {
+    "categoryId": "",
+    "format": ""
+  },
+  "roles": {
+    "normalMember": "",
+    "tech": "",
+    "tester": "",
+    "admin": "",
+    "moderator": ""
+  },
+  "channels": {
+    "welcome": "",
+    "rules": "",
+    "referendum": "",
+    "watch2gether": ""
+  }
+}
