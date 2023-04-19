@@ -20,10 +20,13 @@ const rest = new REST({ version: '10' }).setToken(token);
     try {
         console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
+        if (guildId) {
+            console.log(`Commands will only be visible in guild with ID = ${guildId}`);
+        }
+
         // The put method is used to fully refresh all commands in the guild with the current set
         const data = await rest.put(
-            // Routes.applicationGuildCommands(clientId, guildId),
-            Routes.applicationCommands(clientId),
+            guildId ? Routes.applicationGuildCommands(clientId, guildId) : Routes.applicationCommands(clientId),
             { body: commands },
         );
 

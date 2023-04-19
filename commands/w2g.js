@@ -1,6 +1,9 @@
-const {Client, ChatInputCommandInteraction, SlashCommandBuilder, Message, channelMention} = require("discord.js");
+const {Client, ChatInputCommandInteraction, SlashCommandBuilder, Message, channelMention, ActionRowBuilder,
+    ButtonBuilder
+} = require("discord.js");
 const config = require("../config.json");
 const Watch2GetherService = require("../services/w2g");
+const {ButtonStyle} = require("discord-api-types/v10");
 
 /**
  * @param client {Client}
@@ -13,8 +16,8 @@ async function execute(client, interaction) {
     try {
         url = await Watch2GetherService.createRoom();
     } catch (e) {
-        console.log("W2G Service error!");
-        console.log(e);
+        console.warn("W2G Service error!");
+        console.warn(e);
 
         /** @type {Message} */
         await interaction.editReply({ content: "Nie udało się utworzyć linku. Spróbuj ponownie później." });
@@ -28,7 +31,17 @@ async function execute(client, interaction) {
         embeds: [Watch2GetherService.generateEmbed(interaction.member, url)]
     });
 
-    await interaction.editReply({ content: `**Pokój utworzony pomyślnie!** Sprawdź kanał ${channelMention(config.channels.watch2gether)}.` });
+    await interaction.editReply({
+        content: `**Pokój utworzony pomyślnie!**\nSprawdź kanał ${channelMention(config.channels.watch2gether)}.`,
+        components: [
+            new ActionRowBuilder().addComponents(
+                new ButtonBuilder()
+                    .setStyle(ButtonStyle.Link)
+                    .setLabel("Otwórz pokój na stronie Watch2Gether")
+                    .setURL(url)
+            )
+        ]
+    });
 }
 
 module.exports = {

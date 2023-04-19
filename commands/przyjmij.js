@@ -22,9 +22,9 @@ async function execute(client, interaction) {
     try {
         const welcomeEmbed = WelcomeService.generateEmbed();
         await member.user.send({ embeds: [welcomeEmbed] });
-        await interaction.editReply({ content: `${member} zostałeś przyjęty na serwer!\n**Sprawdź prywatne wiadomości, aby zobaczyć krótkie oprowadzenie po najważniejszych kanałach.**` });
+        await interaction.editReply({ content: `${member} zostałeś/aś przyjęty/a na serwer!\n**Sprawdź prywatne wiadomości, aby zobaczyć krótkie oprowadzenie po najważniejszych kanałach.**` });
     } catch {
-        await interaction.editReply({ content: `${member} zostałeś przyjęty na serwer!\n**Wykonaj komendę \`/oprowadzenie\`, aby zobaczyć krótkie oprowadzenie po najważniejszych kanałach.**` });
+        await interaction.editReply({ content: `${member} zostałeś/aś przyjęty/a na serwer!\n**Wykonaj komendę \`/oprowadzenie\`, aby zobaczyć krótkie oprowadzenie po najważniejszych kanałach.**` });
     }
 }
 

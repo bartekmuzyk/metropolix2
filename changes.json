@@ -1,8 +1,8 @@
 {
   "title": "Aktualizacja Metropolixa",
-  "description": "Ta aktualizacja wprowadza poprawkę błędu oraz małą zmianę w komendzie do tworzenia ankiet.",
+  "description": "nowe rzeczy i wogulson",
   "features": {
-    "Opcja undefined": "Teraz nie jest możliwe wpisanie 10 opcji w monicie tworzenia głosowania. Limit został zmniejszony do 9, czyli liczbie odpowiadającej ilości emotek z cyframi (nie licząc zera).",
-    "Komenda `/glosowanie` bez parametru": "Aby przyśpieszyć proces tworzenia głosowania za pomocą komendy `/glosowanie`, parametr `mention_everyone`, który określał, czy po utworzeniu ankiety bot miał oznaczyć wszystkich ludzi na serwerze, od teraz przyjmuje domyślną wartość `False` (bez oznaczenia) i nie musi być wpisywany ręcznie."
+    "/spotkanie": "wpisz to sie dowiesz.",
+    "poprawka do /w2g": "jak się tworzy pokój to dla wykonawcy komendy pokaże się przycisk, którym można wejść od razu do pokoju."
   }
 }

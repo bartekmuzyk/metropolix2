@@ -43,14 +43,14 @@ async function execute(client, interaction) {
                 .setCustomId("question")
                 .setLabel("Pytanie")
                 .setStyle(TextInputStyle.Short)
-        )
-    );
-    modal.addComponents(
+                .setRequired(true)
+        ),
         new ActionRowBuilder().addComponents(
             new TextInputBuilder()
                 .setCustomId("options")
                 .setLabel("Odpowiedzi oddzielone po średnikach (;)")
                 .setStyle(TextInputStyle.Short)
+                .setRequired(true)
         )
     );
 
@@ -90,7 +90,7 @@ async function onModalSubmit(client, interaction, mentionEveryone) {
     }
 
     pollEmbed.setAuthor({
-        iconURL: interaction.user.avatarURL({ size: 64, extension: "jpg" }),
+        iconURL: interaction.user.avatarURL(),
         name: interaction.member.displayName
     });
 

@@ -1,6 +1,8 @@
 {
   "token": "",
-  "memberCount": {
+  "clientId": "",
+  "guildId": "",
+  "memberCounter": {
     "categoryId": "",
     "format": ""
   },
@@ -15,7 +17,12 @@
     "welcome": "",
     "rules": "",
     "referendum": "",
-    "watch2gether": ""
+    "watch2gether": "",
+    "meetup": {
+      "activeBanner": "",
+      "infoChannel": "",
+      "chatChannel": ""
+    }
   },
   "watch2gether": {
     "nickname": ""

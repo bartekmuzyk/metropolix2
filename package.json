@@ -12,7 +12,11 @@
   "author": "bartekk",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.6.0",
-    "node-fetch": "^2.6.7"
+    "date-fns": "^2.29.3",
+    "discord-api-types": "^0.37.37",
+    "discord.js": "^14.8.0",
+    "node-fetch": "^2.6.7",
+    "node-schedule": "^2.1.1",
+    "uniqid": "^5.4.0"
   }
 }

@@ -1,16 +1,24 @@
-const {Client, Events, GatewayIntentBits, Collection, TextChannel, userMention, roleMention, channelMention, Guild, ActivityType} = require("discord.js");
+const {Client, Events, GatewayIntentBits, Collection, TextChannel, userMention, roleMention, channelMention, Guild, ActivityType,
+    AttachmentBuilder
+} = require("discord.js");
 const config = require("./config.json");
 const path = require("path");
 const fs = require("fs");
 const ModalSubmitRegistrar = require("./registrars/ModalSubmitRegistrar");
+const ButtonRegistrar = require("./registrars/ButtonRegistrar");
 const Auth = require("./auth");
+const datefns = require("date-fns");
+
+datefns.setDefaultOptions({
+    locale: require("date-fns/locale/pl")
+});
 
 const isDevMode = process.env.BOT_ENV === "dev";
 
 if (isDevMode) console.log("🚧 TRYB DEWELOPERSKI 🚧");
 
 const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers]
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]
 });
 
 client.commands = new Collection();
@@ -35,8 +43,8 @@ client.once(Events.ClientReady, c => {
         status: isDevMode ? "dnd" : "online",
         activities: [
             {
-                type: ActivityType.Playing,
-                name: "typu winogronoooo!!"
+                type: ActivityType.Watching,
+                name: "wielkiego brata"
             }
         ]
     });
@@ -84,6 +92,20 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 });
 
+client.on(Events.InteractionCreate, async interaction => {
+    if (!interaction.isButton()) return;
+
+    if (ButtonRegistrar.callbacks.hasOwnProperty(interaction.customId)) {
+        ButtonRegistrar.callbacks[interaction.customId](client, interaction);
+    }
+});
+
+client.on(Events.MessageCreate, async message => {
+    if (message.content.toLowerCase().includes("janusz angrybirds")) {
+        await message.reply({ files: [new AttachmentBuilder("assets/realistic_angry_bird.jpg")] });
+    }
+});
+
 /**
  * @param guild {Guild}
  */
@@ -92,7 +114,7 @@ async function updateMembersDisplay(guild) {
         .setName(config.memberCounter.format.replace("{}", guild.memberCount.toString()));
 }
 
-client.on("guildMemberAdd", async member => {
+client.on(Events.GuildMemberAdd, async member => {
     if (member.user.bot) return;
 
     /** @type {TextChannel} */
@@ -107,7 +129,7 @@ client.on("guildMemberAdd", async member => {
     await updateMembersDisplay(member.guild);
 });
 
-client.on("guildMemberRemove", async member => {
+client.on(Events.GuildMemberRemove, async member => {
     await updateMembersDisplay(member.guild);
 });
 
