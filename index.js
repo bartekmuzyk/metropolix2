@@ -6,7 +6,6 @@ const path = require("path");
 const fs = require("fs");
 const ModalSubmitRegistrar = require("./registrars/ModalSubmitRegistrar");
 const ButtonRegistrar = require("./registrars/ButtonRegistrar");
-const Auth = require("./auth");
 const datefns = require("date-fns");
 
 datefns.setDefaultOptions({
@@ -60,11 +59,6 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 
     console.log(`====> ${interaction.user.tag} wykonuje /${interaction.commandName} <====`);
-
-    if (!Auth.authorize(interaction)) {
-        interaction.reply({ content: "Nie jesteś pełnoprawnym członkiem Metropolii, więc nie możesz wykonać tej komendy.\nᵉᶻ", ephemeral: true });
-        return;
-    }
 
     const command = interaction.client.commands.get(interaction.commandName);
 
@@ -122,8 +116,7 @@ client.on(Events.GuildMemberAdd, async member => {
     await welcomeChannel.send({
         content:
             `**Witaj ${userMention(member.user.id)}!**\n` +
-            `Napisz tutaj kim jesteś lub kto wysłał Ci zaproszenie, następnie poczekaj na administratora (${roleMention(config.roles.admin)}), moderatora (${roleMention(config.roles.moderator)}) lub technika (${roleMention(config.roles.tech)}), który przyzna Ci odpowiednie uprawnienia.\n\n` +
-            `*W tym czasie polecamy zapoznać się z ${channelMention(config.channels.rules)}.*`
+            `Napisz tutaj kim jesteś lub kto wysłał Ci zaproszenie, następnie zapoznaj się z zasadami na ${channelMention(config.channels.rules)} i zobacz krótkie oprowadzenie za pomocą komendy \`/oprowadzenie\`.\n**Życzymy miłego pobytu!**`
     });
 
     await updateMembersDisplay(member.guild);

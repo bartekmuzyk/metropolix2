@@ -157,13 +157,14 @@ async function updateInfoEmbed(client) {
 
 /**
  * @param client {Client}
+ * @param interaction
  * @param state {boolean}
  * @returns {Promise<void>}
  */
-async function toggleMeetupActiveBanner(client, state) {
+async function toggleMeetupActiveBanner(client, interaction, state) {
     const bannerChannel = client.channels.cache.get(config.channels.meetup.activeBanner);
 
-    await bannerChannel.permissionOverwrites.edit(config.roles.normalMember, {ViewChannel: state});
+    await bannerChannel.permissionOverwrites.edit(interaction.guild.roles.everyone.id, {ViewChannel: state});
 }
 
 ModalSubmitRegistrar.register(
@@ -218,7 +219,7 @@ ModalSubmitRegistrar.register(
         });
 
         DataStorage.modify("meet", {infoMessageId: infoMessage.id});
-        await toggleMeetupActiveBanner(client, true);
+        await toggleMeetupActiveBanner(client, interaction, true);
 
         MeetService.scheduleMeetHappenedJob(
             meetupData,
@@ -242,7 +243,7 @@ ModalSubmitRegistrar.register(
                 const infoMessage = await getInfoMessage(client);
                 await infoMessage.delete();
 
-                await toggleMeetupActiveBanner(client, false);
+                await toggleMeetupActiveBanner(client, interaction,false);
 
                 DataStorage.delete("meet");
             }
@@ -546,7 +547,7 @@ ButtonRegistrar.register(
             interaction.guild, currentMeetData.interested, client,
             "Spotkanie zostało **anulowane**."
         );
-        await toggleMeetupActiveBanner(client, false);
+        await toggleMeetupActiveBanner(client, interaction, false);
 
         DataStorage.delete("meet");
 
