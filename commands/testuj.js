@@ -1,7 +1,6 @@
 const {ChatInputCommandInteraction, SlashCommandBuilder, Client} = require("discord.js");
 const config = require("../config.json");
 const {DiscordPermission} = require("../constants");
-const ChangesService = require("../services/changes");
 
 /**
  * @param client {Client}
@@ -19,11 +18,6 @@ async function execute(client, interaction) {
         case "counter":
             await client.channels.cache.get(config.memberCounter.categoryId)
                 .setName(config.memberCounter.format.replace("{}", interaction.guild.memberCount.toString()));
-            break;
-        case "zmiany":
-            await interaction.user.send({
-                embeds: [ChangesService.generateChangesEmbed()]
-            });
             break;
     }
 }
