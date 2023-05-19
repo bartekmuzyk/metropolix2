@@ -273,9 +273,8 @@ ButtonRegistrar.register(
         const executorUserId = interaction.user.id;
 
         if (executorUserId === currentMeetData.creator) {
-            await interaction.reply({
-                content: "Jesteś organizatorem spotkania. Nie możesz wyrazić zainteresowania własnym wydarzeniem... lol xd....",
-                ephemeral: true
+            await interaction.editReply({
+                content: "Jesteś organizatorem spotkania. Nie możesz wyrazić zainteresowania własnym wydarzeniem... lol xd...."
             });
             return;
         }
